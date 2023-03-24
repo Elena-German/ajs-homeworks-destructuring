@@ -19,7 +19,6 @@ test('testing function showSpecialAttacks', () => {
         id: 9,
         name: 'Нокаутирующий удар',
         icon: 'http://...',
-        // <- обратите внимание, описание "засекречено"
       },
     ],
   };
@@ -40,4 +39,17 @@ test('testing function showSpecialAttacks', () => {
       },
     ],
   );
+});
+
+test('testing function showSpecialAttacks - character without SpecialAttacks', () => {
+  const character = {
+    name: 'Лучник',
+    type: 'Bowman',
+    health: 50,
+    level: 3,
+    attack: 40,
+    defence: 10,
+  };
+  const rezult = showSpecialAttacks(character);
+  expect(rezult).toEqual([]);
 });
